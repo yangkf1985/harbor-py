@@ -293,8 +293,8 @@ class HarborClient(object):
         # TODO: support to check tag
         # TODO: return 200 but the repo is not deleted, need more test
         result = False
-        path = '%s://%s/api/repositories?repo_name=%s' % (self.protocol,
-                                                          self.host, repo_name)
+        path = '%s://%s/api/repositories/%s' % (self.protocol,
+                                                self.host, repo_name)
         response = requests.delete(path,
                                    cookies={'beegosessionID': self.session_id})
         if response.status_code == 200:
